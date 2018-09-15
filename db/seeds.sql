@@ -1,10 +1,10 @@
 insert into burgers (burger_name, devoured) values
-("Damburger", false),
-("Cheeseburger", false),
-("Bacon cheeseburger", false),
-("California burger", false),
-("Chili burger", false),
-("Hawaii burger", false),
-("Slugburger", false),
-("Veggie burger", false),
-("Slider", false);
+("CSS Burger", false),
+("HTML Burger", false),
+("js Burger", false),
+("Java Burger", false),
+("Node Burger", false),
+("Express Burger", false),
+("Database Burger", false),
+("API Burger", false),
+("MySql Burger", false);

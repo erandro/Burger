@@ -1,10 +1,105 @@
-<h1>{{}}</h1>
+<div class="container">
 
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <p style="font-family: 'Libre Barcode 128 Text', cursive; font-size: 4rem; color: #b41f79">The Burger's
+                Code</p>
+        </div>
+    </div>
 
+    <div class="row">
 
+        <div class="col-md-4 text-center">
+            <h4 style="color: #ffa369;">Update burgers:</h4>
+            <ul style="color: #ffa369; font-size: 1.2rem;">
+                {{#each burgers}}
+                {{#unless devoured}}
+                {{> burgers/burger-block devoured=false}}
+                {{/unless}}
+                {{/each}}
+            </ul>
+        </div>
 
+        <div class="col-md-4 text-center">
 
+            <div style="padding-left: 20px;  padding-right: 20px;">
+                <img src="https://i.gifer.com/1I0k.gif" alt="Spining Burger" class="img-fluid">
+            </div>
+            <div>
+                <h4 style="color: #ff6b71;">Post a Burger</h4>
+                <form class="create-form text-center">
+                    <div class="form-group">
+                        <input class="text-center" type="text" id="burger" name="name" placeholder="Burger Name" style="color: #ff6b71;">
+                    </div>
+                    <button type="submit" style="background: #ff6b71; color: #fff;">Post!</button>
+                </form>
+            </div>
+        </div>
 
-<form action="/" method="POST">
-    <button type="submit">Submit</button>
-</form>
+        <div class="col-md-4 text-center">
+            <h4 style="color: #ff3979;">Droped burgers:</h4>
+            <ul style="color: #ff3979; font-size: 1.2rem;">
+                {{#each burgers}}
+                {{#if devoured}}
+                {{> burgers/burger-block devoured=true}}
+                {{/if}}
+                {{/each}}
+            </ul>
+        </div>
+
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(function () {
+        $(".devoured").on("click", function (event) {
+            var id = $(this).data("id");
+            var devoured = {
+                devoured: true
+            };
+
+            $.ajax("/api/burgers/" + id, {
+                type: "put",
+                data: devoured
+            }).then(
+                function () {
+                    console.log("devour that burger");
+                    location.reload();
+                }
+            );
+        });
+
+        $(".create-form").on("submit", function (event) {
+            event.preventDefault();
+            var newBurger = {
+                name: $("#burger").val().trim(),
+                devoured: false
+            };
+            console.log("create Boom!!!!!!!!!!!!!!!");
+            console.log(newBurger);
+            $.ajax("/api/burgers", {
+                type: "post",
+                data: newBurger
+            }).then(
+                function () {
+                    console.log("created new burger");
+                    location.reload();
+                }
+            );
+        });
+
+        $(".delete").on("click", function (event) {
+            var id = $(this).data("id");
+            console.log("delete Boom!!!!!!!!!!!!!!!")
+            $.ajax("/api/burgers/" + id, {
+                type: "DELETE"
+            }).then(
+                function () {
+                    console.log("this burger is no more!");
+                    location.reload();
+                }
+            );
+        });
+
+    });
+</script>
