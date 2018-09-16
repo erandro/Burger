@@ -1,6 +1,39 @@
 body {
     background-image: radial-gradient(circle, #fff, #fff, #ffffc3, #ffdc8e);
 }
+#main_title {
+    font-family: 'Libre Barcode 128 Text', cursive;
+    font-size: 4rem;
+    color: #b41f79;
+}
 
+/* Update */
+.the_update_title {
+    color: #ffa369;
+}
+.the_update_ul {
+    color: #ffa369;
+    font-size: 1.2rem;
+}
 
+/* Drop */
+.the_droped_title {
+    color: #ff3979;
+}
+.the_droped_ul {
+    color: #ff3979;
+    font-size: 1.2rem;
+}
 
+/* Post */
+.the_post_title, .the_post_input {
+    color: #ff6b71;
+}
+.the_post_button {
+    background: #ff6b71;
+    color: #fff;
+}
+#gif_holder {
+    padding-left: 20px;
+    padding-right: 20px;
+}
