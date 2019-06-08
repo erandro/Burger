@@ -4,7 +4,7 @@
 
 This application is a full stack app where the user can add and update data (burger's name in this case) to a database. This information is shown to the user in real time.
 
-The app is organized by MVE pattern (using Controller-Routes, Model-ORM, and View-Handlebars), the server is running on Heroku platform and the database is on JawsDB.
+The app is organized by MVC pattern (using Controller-Routes, Model-ORM, and View-Handlebars), the server is running on Heroku platform and the database is on JawsDB.
 
 #### Directory structure
 
