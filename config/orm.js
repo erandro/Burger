@@ -64,4 +64,5 @@ function objToSql(ob) {
     return arr.toString();
 }
 
+// used by ../models/burger.js
 module.exports = orm;

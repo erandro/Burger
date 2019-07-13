@@ -6,7 +6,7 @@ var router = express.Router();
 router.get("/", function (req, res) {
     burger.selectAll(function (data) {
         var burgerObject = {
-            burgers: data.Burger
+            burgers: data
         };
         console.log(burgerObject);
         res.render("index", burgerObject);
@@ -37,4 +37,5 @@ router.put("/api/burgers/:id", function (req, res) {
     });
 });
 
+// used by ../server.js
 module.exports = router;

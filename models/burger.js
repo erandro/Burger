@@ -18,4 +18,5 @@ var burger = {
     }
 };
 
+// used by ../controllers/burgers_controller.js
 module.exports = burger;
